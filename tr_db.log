@@ -1,0 +1,4 @@
+  CREATE_STREAM @0 {NAME:reset T:Transactions SCOPE:seqr STREAM:1753}
+  CREATE_STREAM @101100 {NAME:file T:Transactions SCOPE:seqr STREAM:1806}
+  CREATE_STREAM @0 {NAME:reset T:Transactions SCOPE:seqr STREAM:1753}
+  CREATE_STREAM @101100 {NAME:file T:Transactions SCOPE:seqr STREAM:1806}

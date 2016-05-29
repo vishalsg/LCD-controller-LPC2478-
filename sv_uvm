@@ -1,0 +1,15 @@
+#!/usr/bin/csh
+
+setenv SFLM_SERVER innersanctum
+setenv CDS_LIC_FILE 5280@innersanctum:/apps/cadence/license-current
+setenv CDSLMD_LICENSE_FILE 5280@innersanctum:/apps/cadence/license-current
+setenv LM_LICENSE_FILE 27000@innersanctum.engr.sjsu.edu:/apps/synopsys/license/current-license-key:27001@innersanctum.engr.sjsu.edu
+setenv SNPSLMS_LICENSE_FILE 27000@innersanctum.engr.sjsu.edu:/apps/synopsys/license/current-license-key
+setenv VCS_HOME /apps/synopsys/I-2014.03-2
+source ${VCS_HOME}/bin/environ.csh
+setenv UVM_HOME /home/morris/uvm-1.2
+setenv VCS_UVM_HOME ${UVM_HOME}
+vcs -sverilog -timescale=1ns/1ns +define+UVM_OBJECT_MUST_HAVE_CONSTRUCTOR +define+UVM_NO_DEPRECATED +acc +vpi +incdir+${UVM_HOME}/src ${UVM_HOME}/src/uvm.sv ${UVM_HOME}/src/dpi/uvm_dpi.cc -CFLAGS -DVCS $argv
+if ($status != 0) exit $status
+./simv
+exit 0
